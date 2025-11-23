@@ -1,0 +1,5 @@
+{
+  "name": "BloodLink",
+  "description": "Application de mise en relation pour le don de sang au Cameroun, connectant donneurs, médecins et banques de sang.",
+  "requestFramePermissions": []
+}
