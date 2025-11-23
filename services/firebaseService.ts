@@ -120,6 +120,8 @@ export const firebaseService = {
             message = "Email ou mot de passe incorrect.";
         } else if (error.code === 'auth/too-many-requests') {
             message = "Trop de tentatives échouées. Veuillez réessayer plus tard.";
+        } else if (error.code === 'auth/invalid-email') {
+            message = "Le format de l'adresse email est invalide.";
         }
         throw new Error(message);
     }
@@ -328,7 +330,7 @@ export const firebaseService = {
             hospitalName: displayHospital || "Banque de Sang",
             location: displayLocation || "Cameroun",
             timePosted: calculateTimePosted(data.alertDate),
-            urgency: (data.urgencyLevel === 'high' ? 'HIGH' : data.urgencyLevel === 'medium' ? 'MEDIUM' : 'LOW') || 'HIGH',
+            urgency: (data.urgencyLevel === 'high' ? 'HIGH' : data.urgencyLevel === 'medium' ? 'MEDIUM' : 'LOW'),
             bloodBankId: data.bloodBankId,
             alertDate: data.alertDate,
             originalRequestId: data.requestId,
@@ -352,7 +354,7 @@ export const firebaseService = {
             hospitalName: data.bankName || "Banque de Sang",
             location: data.bankLocation || "Cameroun",
             timePosted: calculateTimePosted(data.alertDate),
-            urgency: (data.urgencyLevel === 'high' ? 'HIGH' : data.urgencyLevel === 'medium' ? 'MEDIUM' : 'LOW') || 'HIGH',
+            urgency: (data.urgencyLevel === 'high' ? 'HIGH' : data.urgencyLevel === 'medium' ? 'MEDIUM' : 'LOW') ,
             bloodBankId: data.bloodBankId,
             alertDate: data.alertDate,
             originalRequestId: data.requestId,

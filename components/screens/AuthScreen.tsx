@@ -38,7 +38,7 @@ export const AuthScreen: React.FC<Props> = ({ view, onNavigate }) => {
     setIsLoading(true);
     setError('');
     try {
-      await firebaseService.login(email, password);
+      await firebaseService.login(email.trim(), password);
       await refreshUser();
     } catch (err: any) {
       setError(err.message || "Échec de la connexion. Vérifiez vos identifiants.");
@@ -74,7 +74,7 @@ export const AuthScreen: React.FC<Props> = ({ view, onNavigate }) => {
     
     try {
       const registerData = {
-        email,
+        email: email.trim(),
         password,
         username,
         role: selectedRole,
