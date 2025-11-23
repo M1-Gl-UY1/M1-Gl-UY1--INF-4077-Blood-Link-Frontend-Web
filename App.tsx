@@ -9,6 +9,7 @@ import { Profile } from './components/screens/Profile';
 import { MedicalFolder } from './components/screens/MedicalFolder';
 import { AlertDetails } from './components/screens/AlertDetails';
 import { RequestDetails } from './components/screens/RequestDetails';
+import { HelpScreen } from './components/screens/HelpScreen';
 import { firebaseService } from './services/firebaseService';
 
 const AppContent: React.FC = () => {
@@ -23,7 +24,7 @@ const AppContent: React.FC = () => {
            setCurrentView(AppView.DASHBOARD);
         }
       } else {
-        if ([AppView.DASHBOARD, AppView.PROFILE, AppView.MEDICAL_FOLDER, AppView.ALERT_DETAILS, AppView.REQUEST_DETAILS].includes(currentView)) {
+        if ([AppView.DASHBOARD, AppView.PROFILE, AppView.MEDICAL_FOLDER, AppView.ALERT_DETAILS, AppView.REQUEST_DETAILS, AppView.HELP].includes(currentView)) {
             setCurrentView(AppView.SPLASH);
         }
       }
@@ -72,6 +73,7 @@ const AppContent: React.FC = () => {
         )}
         {currentView === AppView.PROFILE && <Profile />}
         {currentView === AppView.MEDICAL_FOLDER && <MedicalFolder />}
+        {currentView === AppView.HELP && <HelpScreen />}
         
         {currentView === AppView.ALERT_DETAILS && selectedResourceId && (
             <AlertDetails alertId={selectedResourceId} onNavigate={setCurrentView} />

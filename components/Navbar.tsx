@@ -1,5 +1,5 @@
 import React from 'react';
-import { User, Home, Droplet, LogOut, Menu } from 'lucide-react';
+import { User, Home, Droplet, LogOut, Menu, HelpCircle } from 'lucide-react';
 import { AppView, UserRole } from '../types';
 import { useAuth } from '../contexts/AuthContext';
 
@@ -53,6 +53,14 @@ export const Navbar: React.FC<Props> = ({ currentView, onNavigate, onLogout }) =
               <span>Profil</span>
             </button>
 
+            <button 
+              className={navItemClass(AppView.HELP)}
+              onClick={() => onNavigate(AppView.HELP)}
+              title="Aide et Maquettes"
+            >
+              <HelpCircle size={18} />
+            </button>
+
             <div className="h-6 w-px bg-gray-200 mx-2"></div>
 
             <button 
@@ -64,8 +72,16 @@ export const Navbar: React.FC<Props> = ({ currentView, onNavigate, onLogout }) =
             </button>
           </div>
 
-          <div className="flex items-center md:hidden text-gray-500">
-            <Menu size={24} />
+          <div className="flex items-center md:hidden gap-4">
+             <button 
+              className="text-gray-500 hover:text-red-500"
+              onClick={() => onNavigate(AppView.HELP)}
+            >
+              <HelpCircle size={24} />
+            </button>
+            <div className="text-gray-500">
+                <Menu size={24} />
+            </div>
           </div>
         </div>
       </div>
